@@ -140,6 +140,7 @@ public class ReservationController {
 		model.addAttribute("reservationDTO", reservationDTO);
 		model.addAttribute("sessionId", sessionId);
 
+		System.out.println("sessionId = " + sessionId);
 		return "reservations/confirm";
 	}
 	
