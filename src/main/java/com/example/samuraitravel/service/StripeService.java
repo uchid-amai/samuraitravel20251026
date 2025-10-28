@@ -128,8 +128,13 @@ public class StripeService {
             System.out.println("短時間のうちに過剰な回数のAPIコールが行われました。");
             return "";
         } catch (InvalidRequestException e) {
-            System.out.println("APIコールのパラメーターが誤っているか、状態が誤っているか、方法が無効でした。");
-            return "";
+        	 System.out.println("Exception message: " + e.getMessage());
+        	 System.out.println("HTTP Status Code: " + e.getStatusCode());
+        	 System.out.println("Stripe Error Code: " + e.getCode());
+        	 System.out.println("Stripe Request ID: " + e.getRequestId());
+        	 System.out.println("Stripe Param: " + e.getParam());
+        	 System.out.println("APIコールのパラメーターが誤っているか、状態が誤っているか、方法が無効でした。");
+        	 return "";
         } catch (PermissionException e) {
             System.out.println("このリクエストに使用されたAPIキーには必要な権限がありません。");
             return "";
