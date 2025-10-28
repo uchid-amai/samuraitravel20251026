@@ -125,36 +125,31 @@ public class StripeService {
             // 作成したセッションのIDを返す
             return session.getId();
         } catch (RateLimitException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("短時間のうちに過剰な回数のAPIコールが行われました。");
             return "";
         } catch (InvalidRequestException e) {
-        	 e.printStackTrace();
-        	 System.out.println("Exception message: " + e.getMessage());
-        	 System.out.println("HTTP Status Code: " + e.getStatusCode());
-        	 System.out.println("Stripe Error Code: " + e.getCode());
-        	 System.out.println("Stripe Request ID: " + e.getRequestId());
-        	 System.out.println("Stripe Param: " + e.getParam());
-        	 System.out.println("APIコールのパラメーターが誤っているか、状態が誤っているか、方法が無効でした。");
-        	 return "";
+            e.printStackTrace();
+            System.out.println("APIコールのパラメーターが誤っているか、状態が誤っているか、方法が無効でした。");
+            return "";
         } catch (PermissionException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("このリクエストに使用されたAPIキーには必要な権限がありません。");
             return "";
         } catch (AuthenticationException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("Stripeは、提供された情報では認証できません。");
             return "";
         } catch (ApiConnectionException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("お客様のサーバーとStripeの間でネットワークの問題が発生しました。");
             return "";
         } catch (ApiException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("Stripe側で問題が発生しました（稀な状況です）。");
             return "";
         } catch (StripeException e) {
-        	e.printStackTrace();
+            e.printStackTrace();
             System.out.println("Stripeとの通信中に予期せぬエラーが発生しました。");
             return "";
         }
